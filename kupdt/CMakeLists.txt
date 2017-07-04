@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(korbo VERSION 1.0.0 LANGUAGES C CXX)
+project(kupdt VERSION 1.0.0 LANGUAGES C CXX)
 
 find_package(PkgConfig REQUIRED)
 
@@ -10,13 +10,12 @@ link_directories(${GTKMM_LIBRARY_DIRS})
 include_directories(${GTKMM_INCLUDE_DIRS})
 add_definitions(${GTKMM_CFLAGS_OTHER})
 
-include_directories(${kui_INCLUDE_DIRS} ${klogc_INCLUDE_DIRS} ${kfile_INCLUDE_DIRS} ${kio_INCLUDE_DIRS})
-
-file(GLOB KORBO_SRC src/*.*)
+file(GLOB KUPDT_SRC src/*.*)
+file(GLOB KUPDT_UI_SRC src/ui/*.*)
 if (WIN32)
-    add_executable(korbo WIN32 ${KORBO_SRC})
+    add_executable(kupdt WIN32 ${KUPDT_SRC} ${KUPDT_UI_SRC})
     set_source_files_properties(Main.cpp PROPERTIES COMPILE_DEFINITIONS main=WinMain)
 else ()
-    add_executable(korbo ${KORBO_SRC})
+    add_executable(kupdt ${KUPDT_SRC} ${KUPDT_UI_SRC})
 endif ()
-target_link_libraries(korbo ${GTKMM_LIBRARIES} kui klogc kfile kio)
+target_link_libraries(kupdt ${GTKMM_LIBRARIES})
