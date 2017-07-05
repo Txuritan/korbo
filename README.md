@@ -1,3 +1,4 @@
+![korbo-logo](https://raw.githubusercontent.com/Txuritan/korbo/master/korbo-logo.png "Korbo Logo")
 # Korbo
 Open source cross platform Minecraft mod manager
 
